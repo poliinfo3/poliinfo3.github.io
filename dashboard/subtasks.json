@@ -1,0 +1,68 @@
+[
+    {
+        "id": "QA",
+        "name": "Question Answering",
+        "desc": "Question Answeringは、会議録の質問の要約が与えられたときに、対応する答弁の要約を生成することを目的としています。",
+        "link": "/question-answering/",
+        "filekind": "JSONファイル",
+        "filetype": "application/json,text/json,.json",
+        "filesuffix": "json",
+        "metrics": ["ROUGE-1 F-score"],
+        "teamid": 4788681,
+        "versions": [
+            {"id": "v20211120", "name": "Formal Run"},
+            {"id": "v20210726", "name": "DryRun v20210726"},
+            {"id": "v20211201", "name": "Late Submissions"}
+        ]
+    },
+    {
+        "id": "QAA",
+        "name": "QA Alignment",
+        "desc": "QA Alignmentは、一括質問一括答弁の形式の質問と答弁が与えられたとき、それぞれの質問と答弁を対応付けることを目的としています。",
+        "link": "/qa-alignment/",
+        "filekind": "JSONファイル",
+        "filetype": "application/json,text/json,.json",
+        "filesuffix": "json",
+        "metrics": ["Score", "Precision", "Recall"],
+        "teamid": 4788684,
+        "versions": [
+            {"id": "v20211120", "name": "Formal Run"},
+            {"id": "v20210726", "name": "DryRun v20210726"},
+            {"id": "v20211201", "name": "Late Submissions"}
+        ]
+    },
+    {
+        "id": "FV",
+        "name": "Fact Verification",
+        "desc": "Fact Verificationは、要約と会議録が与えられたとき、その要約の内容が本当に会議録中に存在するかを判定し、存在する場合はその範囲を特定することを目的としています。",
+        "link": "/fact-verification/",
+        "filekind": "JSONファイル",
+        "filetype": "application/json,text/json,.json",
+        "filesuffix": "json",
+        "metrics": ["F-measure", "Precision", "Recall"],
+        "teamid": 4788687,
+        "versions": [
+            {"id": "v20211120", "name": "Formal Run"},
+            {"id": "v20211117", "name": "DryRun v20211117"},
+            {"id": "v20210613", "name": "DryRun v20210613"},
+            {"id": "v20211201", "name": "Late Submissions"}
+        ]
+    },
+    {
+        "id": "BAM",
+        "name": "Budget Argument Mining",
+        "desc": "Budget Argument Miningは、予算項目や金額が与えられたときに、会議録中からそれについて議論している部分を抽出するとともに、その内容の議論ラベル（決定事項、例示、事実など）を判定することを目的としています。",
+        "link": "/budget-argument-mining/",
+        "filekind": "JSONファイル",
+        "filetype": "application/json,text/json,.json",
+        "filesuffix": "json",
+        "metrics": ["Score", "AC", "RID"],
+        "teamid": 4788690,
+        "versions": [
+            {"id": "v20211120", "name": "Formal Run"},
+            {"id": "v20211027", "name": "DryRun v20211027"},
+            {"id": "v20210728", "name": "DryRun v20210728"},
+            {"id": "v20211201", "name": "Late Submissions"}
+        ]
+    }
+]

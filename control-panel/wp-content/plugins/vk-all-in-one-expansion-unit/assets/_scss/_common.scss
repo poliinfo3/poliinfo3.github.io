@@ -1,0 +1,29 @@
+.link-list li {
+    padding: 0.5em;
+}
+iframe.wp-embedded-content {
+    width: 100%;
+}
+
+.veu_adminEdit {
+    margin-top: 5px;
+}
+
+.veu_contentAddSection {
+    display: block;
+    clear: both;
+    overflow: hidden;
+    margin-top: var(--vk-margin-block-bottom);
+    margin-bottom: var(--vk-margin-block-bottom);
+    &:first-child {
+        margin-top:0;
+    }
+    // カテゴリー情報などがひっついてしまうのでコメントアウト
+    // &:last-child {
+    //     margin-bottom: 0;
+    // }
+}
+
+.btn {
+    white-space: inherit;
+}
