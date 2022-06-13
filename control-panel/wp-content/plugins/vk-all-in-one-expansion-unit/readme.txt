@@ -3,9 +3,9 @@ Contributors: vektor-inc,kurudrive,hinaloe,jim912,hideokamoto,nc30,SaoriMiyazaki
 Donate link:
 Tags: Google Analytics, New posts, Related Posts, sitemap, sns, twitter card, Facebook Page Plugin, OG tags,
 Requires at least: 5.3.0
-Tested up to: 5.9.0
-Requires PHP: 7.0
-Stable tag: 9.70.2.0
+Tested up to: 5.9.2
+Requires PHP: 7.2
+Stable tag: 9.76.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,7 +49,6 @@ Many features can be stopped individually.
 [ Others ]
 
 * Print Google Analytics tag
-* Print meta keyword tag
 * Print meta description tag
 * Rewrite the title tag
 * Insert Related Posts
@@ -81,6 +80,48 @@ e.g.
 2. This is an example of SNS cooperation setting screen.
 
 == Changelog ==
+
+= 9.76.0.1 =
+* [ Specification Change ] Update VK Font Awesome Versions 0.4.0
+* [ Bug fix ][ Child Page List / Contact section / Page list from ancestor ] Fix duplicate Additional CSS classes.
+
+= 9.75.0.0 =
+* [ Bug fix ] Fixed add common attributes ( attribute from VK Blocks 1.29 - )
+* [ Specification Change ] Use composer vk-term-color
+
+= 9.74.1.0 =
+* [ Bug fix ] Fixed ExUnit icon appearing in other menus
+
+= 9.74.0.0 =
+* [ Google Analytics ][ Add function ] Add option for disable tracking of logged in user
+
+= 9.73.3.0 =
+* [ Bug fix ] Fix Admin Fatal Error 
+
+= 9.73.2.0 =
+* [ Bug fix ] Fix Activate setting page warning
+* [ Bug fix ] Fix Facebook btn brand color
+
+= 9.73.1.0 =
+* [ Bug fix ] Fix admin escape 
+
+= 9.73.0.0 =
+* [ Add function ] Cope with font awesome 6
+* [ Bug fix ][ title ] Fix admin title escape 
+* [ other ] Add ExUnit icon on admin menu
+
+= 9.72.0.0 =
+* [ Delete Function ] Print meta keyword tag
+* [ Delete Function ] Print Favicon
+* [ Delete Function ] Bootstrap
+* [ Delete Function ] TinyMCE Stye
+* [ Delete Function ] VK Blocks
+
+= 9.71.1.1 =
+* [ Bug fix ][ Share Btn ] Cope with other theme
+
+= 9.71.0.27 =
+* [ Add function ] Add bread crumb scheme
 
 = 9.70.2.0 =
 * [ Bug fix ] fix active settingscreen about widget.

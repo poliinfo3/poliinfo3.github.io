@@ -17,15 +17,26 @@ $logo_bottom_margin:1rem;
         //  overflow:hidden;
         // }
         @media ( max-width: $md-max ){
-            margin-top:0.5rem;
+            /* 
+            margin-top にするとヘッダー背景に着色した場合にヘッダーの上に余白が貫通してしまう
+            ※ 親要素に overflow:hidden; を指定すれば突き抜けないが、
+            サブメニュー展開の都合上 hidden 指定できない
+            */
+            padding-top:0.5rem; 
             margin-bottom:0.5rem;
+            white-space: normal; //タブレットサイズ以下でサイトタイトルテキストが長い場合見切れてしまうので追加
             img {
                 max-height:50px;
             }
         } 
         @media ( min-width: $lg-min ){
             text-align: left;
-            margin-top:$logo_top_margin;
+            /* 
+            margin-top にするとヘッダー背景に着色した場合にヘッダーの上に余白が貫通してしまう
+            ※ 親要素に overflow:hidden; を指定すれば突き抜けないが、
+            サブメニュー展開の都合上 hidden 指定できない
+            */
+            padding-top:$logo_top_margin;
             margin-bottom:$logo_bottom_margin;
             margin-left:0;
         }
@@ -65,7 +76,7 @@ $logo_bottom_margin:1rem;
         }
         .site-header-logo {
             margin-right:2em;
-            width:100%; // この指定がないとFlexでナビ部分の幅が余分になるためナビ項目に余分な左右余白ができる
+            width: auto;
             img {
                 margin-left:0;
             }

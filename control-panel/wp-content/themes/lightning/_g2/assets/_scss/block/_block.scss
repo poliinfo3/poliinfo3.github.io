@@ -16,23 +16,40 @@ entry-body
 		margin-right:auto;
 	}
 }
-
 .alignfull {
-	width: 100vw;
-	margin-left: calc(50% - 50vw);
-	margin-right: calc(50% - 50vw);
-	&.wp-block-image {
-		// Default block style overwrite
-		width: 100vw;
+	&,
+	&.wp-block-image,
+	&.wp-block-cover-image,
+	&.wp-block-cover {
+		width:auto; /* Don't use 100vw!! cope with windows */
+		margin-left: calc(50% - 50vw);
+		margin-right: calc(50% - 50vw);
 		max-width: 100vw;
 	}
 }
 .alignwide {
-	width: calc( 100% + ( 100vw - 100% ) / 2 );
-	margin-left: calc( ( var(--vk-width-container) - 100vw ) / 4 );
-	margin-right: calc( ( var(--vk-width-container) - 100vw ) / 4 );
-	&.wp-block-image {
+	&,
+	&.wp-block-image,
+	&.wp-block-cover-image,
+	&.wp-block-cover {
+		// --vk-width-container != 100% なので注意
+		// Lightningの幅広 = コンテナの「表示エリア（100%）	」 + 左右余白分の丁度半分
+		width: calc( 100% + ( 100vw - 100% ) / 2 );
+		margin-left: calc( ( 100% - 100vw ) / 4 );
+		margin-right: calc( ( 100% - 100vw ) / 4 );
 		max-width: 100vw;
+	}
+}
+.main-section--col--two {
+	.alignfull,
+	.alignwide {
+		margin-left:0;
+		margin-right:0;
+		max-width: 100%;
+		&.wp-block-image {
+			// Default block style overwrite
+			max-width: 100%;
+		}
 	}
 }
 
@@ -53,17 +70,42 @@ entry-body
 	}
 }
 
+.wp-block-quote cite {
+	font-size: var(--vk-size-text-xs);
+}
+
+/*-------------------------------------------*/
+/*  Column Block
+/*  6.0 から消えたので補正指定
+/*-------------------------------------------*/
+@media (min-width: 782px){
+	.wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column:not(:first-child) {
+		margin-left: var(--wp--style--block-gap, 2em);
+	}
+}
+
+/*-------------------------------------------*/
+/*  Image Block
+/*-------------------------------------------*/
+.wp-block-image img {
+	height:auto;
+	// block にしないと枠線スタイルで画像下部に意図しない余白ができてしまう
+	display: block;
+}
+
 /*-------------------------------------------*/
 /*  Button Block
 /*-------------------------------------------*/
 .wp-block-button {
+	.wp-block-buttons &__link,
 	&__link {
 		font-size: 1rem;
 		border-radius: var(--vk-size-radius);
-		transition: all 0.1s ease-in;
 		background-color: var(--vk-color-primary);
+		transition: all 0.1s ease-in;
 	}
-	.wp-block-button__link:hover {
+	.wp-block-button__link:hover,
+	.wp-block-button__link:hover:not(.has-background){
 		text-decoration: none;
 		background-color: var(--vk-color-primary-dark);
 		border-color: var(--vk-color-primary-dark);
@@ -82,6 +124,7 @@ entry-body
 .is-style-outline>.wp-block-button__link{
 	border-width: 1px;
 }
+
 
 /*-------------------------------------------*/
 /*  Table Block
@@ -237,6 +280,10 @@ entry-body
 .wp-block-search {
 	.wp-block-search__label{
 		display: none;
+	}
+	&__input,
+	&__button{
+		border-radius: var(--vk-size-radius);
 	}
 	.wp-block-search__button{
 		width: 33%;

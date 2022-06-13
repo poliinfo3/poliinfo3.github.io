@@ -93,7 +93,6 @@ class VkExUnit_Contact {
 		if ( ! function_exists( 'register_block_type' ) ) {
 			return;
 		}
-		global $common_attributes;
 		register_block_type(
 			'vk-blocks/contact-section',
 			array(
@@ -108,7 +107,7 @@ class VkExUnit_Contact {
 							'default' => false,
 						),
 					),
-					$common_attributes
+					veu_common_attributes()
 				),
 				'editor_script'   => 'veu-block',
 				'editor_style'    => 'veu-block-editor',
@@ -150,26 +149,8 @@ class VkExUnit_Contact {
 		if ( isset($attributes['className']) ) {
 			$classes .= ' ' . $attributes['className'];
 		}
-		if ( isset($attributes['vkb_hidden']) && $attributes['vkb_hidden'] ) {
-			$classes .= ' vk_hidden';
-		}
-		if ( isset($attributes['vkb_hidden_xxl']) && $attributes['vkb_hidden_xxl'] ) {
-			$classes .= ' vk_hidden-xxl';
-		}
-		if ( isset( $attributes['vkb_hidden_xl_v2'] ) && $attributes['vkb_hidden_xl_v2'] ) {
-			$classes .= ' vk_hidden-xl';
-		}
-		if ( isset($attributes['vkb_hidden_lg']) && $attributes['vkb_hidden_lg'] ) {
-			$classes .= ' vk_hidden-lg';
-		}
-		if ( isset($attributes['vkb_hidden_md']) && $attributes['vkb_hidden_md'] ) {
-			$classes .= ' vk_hidden-md';
-		}
-		if ( isset($attributes['vkb_hidden_sm']) && $attributes['vkb_hidden_sm'] ) {
-			$classes .= ' vk_hidden-sm';
-		}
-		if ( isset($attributes['vkb_hidden_xs']) && $attributes['vkb_hidden_xs'] ) {
-			$classes .= ' vk_hidden-xs';
+		if ( function_exists( 'veu_add_common_attributes_class' ) ) {
+			$classes = veu_add_common_attributes_class( $classes, $attributes );
 		}
 
 		$r = self::render_contact_section_html( $classes, false );
@@ -314,6 +295,15 @@ class VkExUnit_Contact {
 	}
 
 	public function option_sanitaize( $option ) {
+		$option['contact_txt']  = stripslashes( $option['contact_txt'] );
+		$option['tel_number']  = stripslashes( $option['tel_number'] );
+		$option['tel_icon']  = stripslashes( $option['tel_icon'] );
+		$option['contact_time']  = stripslashes( $option['contact_time'] );
+		$option['contact_link']  = stripslashes( $option['contact_link'] );
+		$option['button_text']  = stripslashes( $option['button_text'] );
+		$option['button_text_small']  = stripslashes( $option['button_text_small'] );
+		$option['short_text']  = stripslashes( $option['short_text'] );
+		$option['contact_image']  = esc_url( $option['contact_image'] );
 		$option['contact_html'] = stripslashes( $option['contact_html'] );
 		return $option;
 	}

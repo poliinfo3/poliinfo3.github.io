@@ -8,56 +8,39 @@ define( 'LIGHTNING_SHORT_NAME', 'LTG THEME' );
 /**
  * Debug
  */
-// add_action( 'lightning_header_append', 'lightning_debug_active' );
-function lightning_debug_active(){
+function lightning_debug_active() {
 
 	$options = get_option( 'lightning_theme_options' );
 	// print '<pre style="text-align:left">';print_r($options);print '</pre>';
 
 	$generation = get_option( 'lightning_theme_generation' );
-	print '<pre style="text-align:left">';print_r($generation);print '</pre>';
-
+	print '<pre style="text-align:left">';
+	print_r( $generation );
+	print '</pre>';
 }
+// add_action( 'lightning_header_append', 'lightning_debug_active' );
 
 /*
   Theme setup
-/*
   Load JS
-/*
   Load CSS
-/*
   Load Theme Customizer additions.
-/*
   Load Custom template tags for this theme.
-/*
   Load widgets
-/*
   Load designskin manager
-/*
   Load tga(Plugin install)
-/*
   Load Front PR Blocks
-/*
   WidgetArea initiate
-/*
   Year Artchive list 'year' and count insert to inner </a>
-/*
   Category list 'count insert to inner </a>
-/*
   Global navigation add cptions
-/*
   headfix enable
-/*
   Tag Cloud _ Change font size
-/*
   HOME _ Default content hidden
-/*
   Move jQuery to footer
-/*
   disable_tgm_notification_except_admin
-/*
   Add defer first aid
-/*-------------------------------------------*/
+  */
 
 /*
   Theme setup
@@ -67,57 +50,41 @@ function lightning_theme_setup() {
 
 	global $content_width;
 
-	/*
-	  Title tag
-	/*-------------------------------------------*/
 	add_theme_support( 'title-tag' );
-
-	/*
-	  editor-styles
-	/*-------------------------------------------*/
 	add_theme_support( 'editor-styles' );
+	add_theme_support( 'align-wide' );
+	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'automatic-feed-links' );
+	add_theme_support( 'woocommerce' );
+
+	set_post_thumbnail_size( 320, 180, true );
 
 	// When this support that printed front css and it's overwrite skin table style and so on
 	// add_theme_support( 'wp-block-styles' );
 
-	add_theme_support( 'align-wide' );
-
-	/*
-	  custom-background
-	/*-------------------------------------------*/
+	// custom-background.
 	$args = array(
-		'default-color'          => '#ffffff',
+		'default-color' => '#ffffff',
 	);
 	add_theme_support( 'custom-background', $args );
 
-	// Block Editor line height @since WordPress 5.5
+	// Block Editor line height @since WordPress 5.5.
 	add_theme_support( 'custom-line-height' );
-	// Block Editor custom unit @since WordPress 5.5
-	add_theme_support( 'custom-units', 'px', 'em', 'rem', 'vw', 'vh' );
+	// Block Editor custom unit @since WordPress 5.5.
+	add_theme_support( 'custom-units' );
+	// Block Editor custom unit @since WordPress 5.8.
+	add_theme_support( 'custom-spacing' );
 
-	/*
-	  cope with page excerpt
-	/*-------------------------------------------*/
+	// Add page excerpt.
 	add_post_type_support( 'page', 'excerpt' );
 
-	/*
-	  Admin page _ Eye catch
-	/*-------------------------------------------*/
-	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 320, 180, true );
-
-	/*
-	  Custom menu
-	/*-------------------------------------------*/
+	// Custom menu.
 	register_nav_menus( array( 'Header' => 'Header Navigation' ) );
 	register_nav_menus( array( 'Footer' => 'Footer Navigation' ) );
 
 	load_theme_textdomain( 'lightning', get_template_directory() . '/languages' );
 
-	/*
-	  Set content width
-	/* 	(Auto set up to media max with.)
-	/*-------------------------------------------*/
+	// Set content width 	(Auto set up to media max with.).
 	if ( ! isset( $content_width ) ) {
 		$content_width = 1140;
 	}
@@ -126,16 +93,6 @@ function lightning_theme_setup() {
 	  Add theme support for selective refresh for widgets.
 	/*-------------------------------------------*/
 	add_theme_support( 'customize-selective-refresh-widgets' );
-
-	/*
-	  Feed Links
-	/*-------------------------------------------*/
-	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	  WooCommerce
-	/*-------------------------------------------*/
-	add_theme_support( 'woocommerce' );
 
 	/*
 	  Option init
@@ -158,9 +115,16 @@ function lightning_theme_setup() {
 
 add_action( 'wp_enqueue_scripts', 'lightning_addJs' );
 function lightning_addJs() {
+	if ( filter_input( INPUT_GET, 'legacy-widget-preview', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY ) ) {
+		return;
+	}
+	global $pagenow;
+	if ( 'widgets.php' === $pagenow ) {
+		return;
+	}
 	wp_register_script( 'lightning-js', get_template_directory_uri() . '/assets/js/lightning.min.js', array(), LIGHTNING_THEME_VERSION, true );
 	wp_localize_script( 'lightning-js', 'lightningOpt', apply_filters( 'lightning_localize_options', array() ) );
-	// jsのjQuery依存はもう無いが、一応追加しておく
+	// jsのjQuery依存はもう無いが、一応追加しておく.
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'lightning-js' );
 }
@@ -195,7 +159,8 @@ add_action( 'admin_enqueue_scripts', 'lightning_load_common_editor_css' );
 function lightning_load_common_editor_css() {
 	/*
 	 Notice : Use url then if you use local environment https has error that bring to get css error and don't refrected */
-	/* Notice : add_editor_style() is only one args. */
+	/*
+	 Notice : add_editor_style() is only one args. */
 	/* add_editor_style is for Classic Editor Only. */
 	global $post;
 	if ( ! function_exists( 'use_block_editor_for_post' ) || ! use_block_editor_for_post( $post ) ) {
@@ -259,13 +224,14 @@ require dirname( __FILE__ ) . '/inc/starter-content.php';
 
 /*
   Plugin support
-/*-------------------------------------------*/
-// Load woocommerce modules
+/*
+-------------------------------------------*/
+// Load woocommerce modules.
 if ( class_exists( 'woocommerce' ) ) {
 	require dirname( __FILE__ ) . '/plugin-support/woocommerce/functions-woo.php';
 }
 // Load polylang modules
-include_once ABSPATH . 'wp-admin/includes/plugin.php';
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( is_plugin_active( 'polylang/polylang.php' ) ) {
 	require dirname( __FILE__ ) . '/plugin-support/polylang/functions-polylang.php';
 }
@@ -278,7 +244,7 @@ if ( is_plugin_active( 'bbpress/bbpress.php' ) ) {
 /*-------------------------------------------*/
 if ( ! function_exists( 'lightning_widgets_init' ) ) {
 	function lightning_widgets_init() {
-		// sidebar widget area
+		// sidebar widget area.
 		register_sidebar(
 			array(
 				'name'          => __( 'Sidebar(Home)', 'lightning' ),
@@ -310,7 +276,7 @@ if ( ! function_exists( 'lightning_widgets_init' ) ) {
 				)
 			);
 
-		// Sidebar( post_type )
+		// Sidebar( post_type ).
 
 		$postTypes = get_post_types( array( 'public' => true ) );
 
@@ -371,7 +337,7 @@ if ( ! function_exists( 'lightning_widgets_init' ) ) {
 				)
 			);
 
-		// footer upper widget area
+		// footer upper widget area.
 
 			register_sidebar(
 				array(
@@ -384,7 +350,7 @@ if ( ! function_exists( 'lightning_widgets_init' ) ) {
 				)
 			);
 
-		// footer widget area
+		// footer widget area.
 
 			$footer_widget_area_count = 3;
 			$footer_widget_area_count = apply_filters( 'lightning_footer_widget_area_count', $footer_widget_area_count );
@@ -403,7 +369,7 @@ if ( ! function_exists( 'lightning_widgets_init' ) ) {
 			$i++;
 		}
 
-		// LP widget area
+		// LP widget area.
 
 			$args  = array(
 				'post_type'      => 'page',
@@ -514,14 +480,6 @@ function lightning_headfix_disabel(){
 }
 */
 
-// lightning header height changer disabel sample
-/*
-add_filter( 'lightning_header_height_changer_enable', 'lightning_header_height_changer_disabel');
-function lightning_header_height_changer_disabel(){
-	return false;
-}
-*/
-
 /*
   Tag Cloud _ Change font size
 /*-------------------------------------------*/
@@ -559,25 +517,8 @@ function lightning_disable_tgm_notification_except_admin() {
 }
 
 /*
-  Add defer first aid
-// function lightning_add_defer_to_scripts( $tag, $handle ) {
-// if ( ! preg_match( '/\b(async|defer)\b/', $tag ) ) {
-// return str_replace( ' src', ' defer src', $tag );
-// }
-// return $tag;
-// }
-//
-// if ( ! is_admin() ) {
-// add_filter( 'script_loader_tag', 'lightning_add_defer_to_scripts', 10, 2 );
-// }
-
-*/
-
-
-/*
   embed card
 /*-------------------------------------------*/
-
 remove_action( 'embed_footer', 'print_embed_sharing_dialog' );
 
 function lightning_embed_styles() {

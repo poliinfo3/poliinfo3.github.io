@@ -5,6 +5,8 @@ define( 'LIG_G2_DIR', '_g2' );
 
 define( 'LIG_DEBUG', false );
 
+require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+
 if ( true === LIG_DEBUG ) {
 	function lightning_debug_mode() {
 		$options = lightning_get_theme_options();
@@ -27,7 +29,7 @@ function lightning_is_g3() {
 	} elseif ( 'g2' === $g ) {
 		$return = false;
 	} else {
-		$skin = get_option( 'lightning_design_skin' );
+		$skin    = get_option( 'lightning_design_skin' );
 		$options = get_option( 'lightning_theme_options' );
 		if ( 'origin2' === $skin ) {
 			$return = false;
@@ -151,6 +153,7 @@ if ( lightning_is_g3() ) {
 require dirname( __FILE__ ) . '/inc/customize-basic.php';
 require dirname( __FILE__ ) . '/inc/tgm-plugin-activation/tgm-config.php';
 require dirname( __FILE__ ) . '/inc/vk-old-options-notice/vk-old-options-notice-config.php';
+require dirname( __FILE__ ) . '/inc/admin-mail-checker.php';
 require dirname( __FILE__ ) . '/inc/functions-compatible.php';
 require dirname( __FILE__ ) . '/inc/font-awesome/font-awesome-config.php';
 require dirname( __FILE__ ) . '/inc/old-page-template.php';

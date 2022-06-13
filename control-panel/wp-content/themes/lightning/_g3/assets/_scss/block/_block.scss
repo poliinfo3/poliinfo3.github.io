@@ -8,6 +8,19 @@ entry-body
 	wp-block-cover
 		wp-block-cover__inner-container
 */
+.has-small-font-size {
+	font-size : var(--vk-size-text-sm); /* 14px */
+}
+.has-regular-font-size {
+	font-size : var(--vk-size-text);
+}
+.has-large-font-size {
+	font-size : var(--vk-size-text-lg); /* 24px */
+}
+.has-huge-font-size {
+	font-size : 36px;
+}
+
 .alignfull,
 .alignwide {
 	div[class*="__inner-container"]{
@@ -18,21 +31,28 @@ entry-body
 }
 
 .alignfull {
-	width:auto; /* Don't use 100vw!! cope with windows */
-	margin-left: calc(50% - 50vw);
-	margin-right: calc(50% - 50vw);
-	&.wp-block-image {
-		// Default block style overwrite
+	&,
+	&.vk_slider,
+	&.wp-block-image,
+	&.wp-block-cover-image,
+	&.wp-block-cover {
+		width:auto; /* Don't use 100vw!! cope with windows */
+		margin-left: calc(50% - 50vw);
+		margin-right: calc(50% - 50vw);
 		max-width: 100vw;
 	}
 }
 .alignwide {
-	// --vk-width-container != 100% なので注意
-	// Lightningの幅広 = コンテナの「表示エリア（100%）	」 + 左右余白分の丁度半分
-	width: calc( 100% + ( 100vw - 100% ) / 2 );
-	margin-left: calc( ( 100% - 100vw ) / 4 );
-	margin-right: calc( ( 100% - 100vw ) / 4 );
-	&.wp-block-image {
+	&,
+	&.vk_slider,
+	&.wp-block-image,
+	&.wp-block-cover-image,
+	&.wp-block-cover {
+		// --vk-width-container != 100% なので注意
+		// Lightningの幅広 = コンテナの「表示エリア（100%）	」 + 左右余白分の丁度半分
+		width: calc( 100% + ( 100vw - 100% ) / 2 );
+		margin-left: calc( ( 100% - 100vw ) / 4 );
+		margin-right: calc( ( 100% - 100vw ) / 4 );
 		max-width: 100vw;
 	}
 }
@@ -89,6 +109,29 @@ entry-body
 }
 
 /*-------------------------------------------*/
+/*  Outer
+/*-------------------------------------------*/
+// To be no container area ( ex : lightning_site_footer_before hook )
+.vk_outer-width-full.vk_outer-paddingLR-none > div > .vk_outer_container {
+	max-width:var(--vk-width-container);
+	padding-left:15px;
+	padding-right:15px;
+	box-sizing: border-box;
+	margin-left:auto;
+	margin-right:auto;
+} 
+
+/*-------------------------------------------*/
+/*  Column Block
+/*  6.0 から消えたので補正指定
+/*-------------------------------------------*/
+@media (min-width: 782px){
+	.wp-block-columns:not(.is-not-stacked-on-mobile) > .wp-block-column:not(:first-child) {
+		margin-left: var(--wp--style--block-gap, 2em);
+	}
+}
+
+/*-------------------------------------------*/
 /*  Image Block
 /*-------------------------------------------*/
 .wp-block-image img {
@@ -115,19 +158,21 @@ entry-body
 /*  Button Block
 /*-------------------------------------------*/
 .wp-block-button {
-	&__link {
+	.wp-block-buttons &__link,
+	&__link { // ボタンブロック単独のCSSの方が後に出力されるので負けてしまう
 		font-size: 1rem;
 		border-radius: var(--vk-size-radius);
-		transition: all 0.1s ease-in;
 		background-color: var(--vk-color-primary);
+		transition: all 0.1s ease-in;	
 	}
-	.wp-block-button__link:hover {
+	.wp-block-button__link:hover,
+	.wp-block-button__link:hover:not(.has-background){
+		text-decoration: none;
 		background-color: var(--vk-color-primary-vivid);
 		border-color: var(--vk-color-primary-vivid);
 		color:#fff;
 	}
 } 
-
 
 /*-------------------------------------------*/
 /*  Table Block

@@ -1,22 +1,20 @@
 <?php
-/*
-  Load modules
-/*-------------------------------------------*/
-if ( ! class_exists( 'Vk_Font_Awesome_Versions' ) ) {
-	require_once dirname( __FILE__ ) . '/package/class-vk-font-awesome-versions.php';
+/**
+ * Font Awesome Load modules
+ *
+ * @package vektor-inc/lightning
+ */
 
-	global $font_awesome_directory_uri;
-	$template                   = 'lightning';
-	$theme_root_uri             = get_theme_root_uri( $template );
-	$font_awesome_directory_uri = "$theme_root_uri/$template/inc/font-awesome/package/";
-
-	global $vk_font_awesome_version_prefix_customize_panel;
-	$vk_font_awesome_version_prefix_customize_panel = 'Lightning ';
-
-	global $set_enqueue_handle_style;
-	$set_enqueue_handle_style = 'lightning-design-style';
-
-	global $vk_font_awesome_version_priority;
-	$vk_font_awesome_version_priority = 560;
-
+use VektorInc\VK_Font_Awesome_Versions\VkFontAwesomeVersions;
+if ( method_exists( 'VektorInc\VK_Font_Awesome_Versions\VkFontAwesomeVersions', 'init' ) ) {
+	VkFontAwesomeVersions::init();
 }
+
+global $vkfav_customize_panel_prefix;
+$vkfav_customize_panel_prefix = 'Lightning ';
+
+global $vkfav_customize_panel_priority;
+$vkfav_customize_panel_priority = 560;
+
+global $vkfav_set_enqueue_handle_style;
+$vkfav_set_enqueue_handle_style = 'lightning-design-style';

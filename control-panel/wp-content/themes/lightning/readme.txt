@@ -1,14 +1,14 @@
 === Lightning ===
-Lightning WordPress theme, Copyright (C) 2015-2021 Vektor,Inc.
+Lightning WordPress theme, Copyright (C) 2015-2022 Vektor,Inc.
 Lightning WordPress theme is licensed under the GPL.
-Tested up to: 5.8.0
-Stable tag: 14.6.2
+Tested up to: 5.9.3
+Stable tag: 14.21.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 Lightning is a very simple theme.
-Official site : https://lightning.nagoya
+Official site : https://lightning.vektor-inc.co.jp/en
 Sample site : https://demo.lightning.nagoya/
 
 === Tags ===
@@ -22,7 +22,6 @@ Bootstrap based,Supports customizer, Responsive Layout, Page Navigation, Breadcr
 === Widgets Areas ===
 The Theme has 9 widget areas.
 You can use these area to customize the content of your website.
-
 
 == License ==
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License version 2, see file license.txt.
@@ -39,8 +38,201 @@ https://www.vektor-inc.co.jp/inquiry/
 
 == Changelog ==
 
+v14.21.1
+[ G3 ][ Bug fix ] Fix Global Menu
+
+v14.21.0
+[ G3 / G2 ][ Others ] Cope with WP6.0 
+[ G3 / G2 ][ Bug fix ] Fix button default design
+[ G3 / G2 ][ Bug fix ] Fix Mobile Nav close transform
+[ G3 ][ Bug fix ] Fixed global navigation item width
+[ G3 ][ Bug fix ] Fix Google Web Fonts Japanese display on Edge
+
+v14.20.3
+[ G3 / G2 ][ Bug Fix ] Fix load Font Awesome Files on WordPress.com
+
+v14.20.2
+[ G3 ][ Others ] Update Breadcrumb composer library 0.2.2
+
+v14.20.1
+[ G3 ][ Bug fix ] Fix site title nowrap on mobile
+[ G3 / G2 ][ Others ] Update Vektor Font Awesome library 0.4.0
+
+v14.20.0
+[ G3 / G2 ][ Others ] Update Vektor Font Awesome library 0.3.3
+
+v14.19.2
+[ G3 / G2 ] Fix Font Awesome Icon link
+
+v14.19.1
+[ G3 ][ Bug fix ] fix action hook name 'lightning_site_body_apepend' -> 'lightning_site_body_append'
+[ G3 ][ Bug fix ] No Read Lightning Scripts on widget editor scrren.
+
+v14.19.0
+[ G3 ][ Specification Change ] Delete table bottom margin
+[ G3 /G2 ][ Design tuning ] wooCommerce Design Tuning
+
+v14.18.2
+[ G3 ][ Bug fix ] Fix Column setting on archive page
+[ G3 ][ Bug fix ] Fix Slide(Swiper) bug on safari
+
+v14.18.1
+[ G3 ][ Bug fix ] fix html head
+[ G3 ][ Bug fix ] Cope with breadcrumb block
+
+v14.18.0
+[ G3 / G2 ][ Add function ] Cope with font awesome 6
+[ G3 ][Bug fix ] Fix Group width and so on eit screen
+
+v14.17.5
+[ G3 / G2 ][Bug fix ] Fix not loaded
+
+v14.17.4
+[ G3 / G2 ][Bug fix ] Fix JS error on widget edit screen.
+[ G3 ][ Design bug fix ] Fix VK Outer Blocks width
+
+v14.17.3
+rebuild only
+
+v14.17.2
+[ G3 ][ Design bug fix ] Fix VK Outer Blocks width on lightning_site_footer_before
+
+v14.17.1
+[ G3 ][ Add filter ] Add filter to be control Breadcrumb position.
+
+v14.17.0
+[ G3 ][ Add filter ] Add filter to be control Breadcrumb position.
+
+v14.16.0
+[ G3 ][ Specification Change ] Change to convert use composer.
+[ G3 ][ fix ] Starter content exclude plugin instruction
+
+v14.15.2
+[ G3 ][ Bug fix ] Fix Skin select from old version
+
+v14.15.1
+[ G3 / G2 ][ Bug fix ] fix design parts corruption on editor screen
+
+v14.15.0
+[ G3 ][ Specification Change / Design bug fix ] delete .site-body horizontal padding
+
+v14.14.1
+[ G3 / G2 ][ Bug fix ] Fix layout bug come rise from "should_load_separate_assets" css load order
+
+v14.14.0
+[ G3 / G2 ] Cope with WordPress 5.9
+
+v14.13.6
+[ G3 ][ Design Bug Fix ] Fix footer nav menu border
+[ G3 ][ Design specification Change ] Change h4,h5,h6 margin-top
+
+v14.13.5
+[ G3 / G2 ][ Design Bug fix ] Fix card image layout bug gave rize from 14.13.4
+
+v14.13.4
+[ G3 / G2 ][ Design Bug fix ] Fix media layout bug
+
+v14.13.3
+[ G3 ][ Bug fix ] Fix Slider bug ( attribute from VK Blocks 1.20 - )
+
+v14.13.2
+[ G2 ][ Bug fix ] Fix editor css
+
+v14.13.1
+[ G2 ][ Bug fix ] Fix editor calendar
+
+v14.13.0
+[ G3 ][ Add function ] Add 404 template and hook
+
+v14.12.2
+[ G3 ][ Other ] meta box CSS tuning on edit screen
+
+v14.12.1
+[ G3 ][ Bug fix ] Fix side bar position fix in case of header position unlock.
+
+v14.12.0
+[ G3 ] Cope with Pro unit footer nav align.
+
+v14.11.12
+[ G3 ][ Design bug fix ] Add ul and ol tag padding-left
+
+v14.11.11
+[ G2/G3 ][ BreadCrumb ] add item scope
+
+v14.11.10
+[ G2 ][ Bug fix ] Customize screen css
+
+v14.11.9
+[ G2 ][ Bug fix ] Fix edit screen css
+
+v14.11.8
+[ G2 ][ Bug fix ] Fix edit screen css
+
+v14.11.7
+[ G3 ][ Bug fix ] Fix difference in front and editor font selector size.
+
+v14.11.6
+[ G3 ][ Bug fix ] Cope with vk-blocks button custom color ( vk blocks 1.16.3 - )
+
+v14.11.5
+[ G3 ][ Bug fix ] Cope with page link scroll for admin bar
+[ G2/G3 ][ Bug fix ][ vk-compo ] Cope with br
+
+v14.11.4
+[ G3 ][ Bug fix ][ Slide ] Fix slide no btn link bug
+
+v14.11.3
+[ G2 / G3 ][ Bug fix ][ Breadcrumb ] Fix microdata
+
+v14.11.2
+[ G3 ][ Bug fix ][ color palette ] Fix color array
+
+v14.11.1
+[ G3 ][ Bug fix ] Fix php notice under case of key color was not spacificated
+
+v14.11.0
+[ G3 ][ Add function ] Add custom color to color palettes
+[ G3 ][ Specification Change ] Move key color setting to Color setting from Lightning Design Setting
+
+v14.10.0
+[ G3 ][ Add function ] Add key color to color palettes
+[ G3 ][ Add function ] Add mail address checker
+
+v14.9.4
+[ G3 ][ Bug fix ] fix missing textdomain
+
+v14.9.3
+[ G3 ][ Bug fix ] Fix button active color
+
+v14.9.2
+[ G3 ][ Bug fix ] fix missing textdomain
+
+v14.9.1
+[ G3 / G2 ][ Bug fix ] Cope with custom unit "%"
+
+v14.9.0
+[ G3 ][ Specification Change ] Add filter vk_term_color_taxonomy / vk_get_single_term_with_color / vk_post_view
+
+v14.8.2
+[ G3 ][ Bug fix ] Header logo margin-top -> padding-top ( Cope width add site-header background-color ) 
+
+v14.8.1
+[ G3 ][ Bug fix ] Add change filter hook name fall back ( lightning_archive-header -> lightning_archive_header )
+[ G3 ][ Other ] PHPUnit test Refactoring
+
+v14.8.0
+[ G3 ][ Other ] No post message cope with post type 
+[ G3 ][ Bug fix ] fix form font size
+
+v14.7.1
+[ G3 ][ Bug fix ] fix design css load priority on edit screen
+[ G3 ][ Change Filter Hook Name] lightning_archive-header -> lightning_archive_header
+
+v14.7.0
+[ G2/G3 ][ Bug fix ] Fix Widget setting page JavaScript Error
+
 v14.6.2
-[ G3 ][ Bug fix ] Fix Ctree shaking not work
+[ G3 ][ Bug fix ] Fix Tree shaking not work
 
 v14.6.1
 [ G3 ][ Bug fix ] Fix Class Name Error
